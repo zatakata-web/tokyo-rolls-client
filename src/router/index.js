@@ -1,30 +1,46 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Vue from "vue"
+import VueRouter from "vue-router"
 
-Vue.use(VueRouter);
+import Storage from '@/views/Storage.vue'
+import Orders from '@/views/Orders.vue'
+import Rolls from '@/views/Rolls.vue'
+import Products from '@/views/Products.vue'
+import CreateOrder from '@/views/CreateOrder.vue'
+
+Vue.use(VueRouter)
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    name: "Storage",
+    component: Storage,
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    path: "/orders",
+    name: "Orders",
+    component: Orders,
   },
-];
+  {
+    path: "/rolls",
+    name: "Rolls",
+    component: Rolls,
+  },
+  {
+    path: "/products",
+    name: "Products",
+    component: Products,
+  },
+  {
+    path: "/create-order",
+    name: "CreateOrder",
+    component: CreateOrder,
+  },
+]
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
-});
+})
 
-export default router;
+export default router
